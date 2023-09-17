@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.toss.tosspost.model.DAO.CategoryDAO">
+    <insert id="insertCategory">
+        insert into CATEGORY_INFO(ID_SEQ, CATG_NM) values(#{ID_SEQ}, #{CATG_NM})
+
+    </insert>
+
+    <select id="categoryListAll" parameterType="Long"  resultType="map">
+        select CATG_SEQ, CATG_NM from CATEGORY_INFO where id_seq = #{ID_SEQ}
+    </select>
+
+    <update id="categoryPut">
+        UPDATE
+            CATEGORY_INFO
+        SET
+            CATG_NM = #{CATG_NM}
+        WHERE
+            CATG_SEQ = #{CATG_SEQ};
+    </update>
+
+</mapper>

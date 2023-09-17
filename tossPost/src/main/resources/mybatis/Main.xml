@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.toss.tosspost.model.DAO.MainDAO">
+
+    <!-- 회원가입 -->
+    <insert id="createMember">
+        insert into member_info(mem_id, mem_pw) values(#{MEM_ID}, #{MEM_PW})
+    </insert>
+
+    <!-- 로그인 -->
+    <select id="selectMemberLogin" resultType="com.toss.tosspost.model.DTO.MemberDTO">
+        select id_seq from MEMBER_INFO where mem_id = #{MEM_ID} and mem_pw = #{MEM_PW}
+    </select>
+</mapper>
